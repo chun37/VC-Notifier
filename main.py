@@ -21,7 +21,8 @@ class Client(discord.Client):
             event_name = "参加"
         elif after.channel is None:
             event_name = "退出"
-        message = f"{event_name}: {member.name}"
+        member_name = member.nick if member.nick is not None else member.name
+        message = f"{event_name}: {member_name}"
         await channel.send(message)
 
 
